@@ -1,0 +1,9 @@
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Entities\bin\Debug\WeddingPlanner.Entities.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Entities\bin\Debug\WeddingPlanner.Entities.pdb
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Entities\obj\Debug\WeddingPlanner.Entities.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Entities\obj\Debug\WeddingPlanner.Entities.pdb
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Entities\bin\Debug\WeddingPlanner.Entities.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Entities\bin\Debug\WeddingPlanner.Entities.pdb
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Entities\obj\Debug\WeddingPlanner.Entities.csprojResolveAssemblyReference.cache
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Entities\obj\Debug\WeddingPlanner.Entities.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Entities\obj\Debug\WeddingPlanner.Entities.pdb

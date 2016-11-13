@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WeddingPlannerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WeddingPlannerEntities" p1:LazyLoadingEnabled="true">
+    <FunctionImport Name="USP_Account_ChangePassword" ReturnType="Collection(String)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Account_Insert" ReturnType="Collection(String)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="BrideName" Mode="In" Type="String" />
+      <Parameter Name="GroomName" Mode="In" Type="String" />
+      <Parameter Name="WeddingDate" Mode="In" Type="DateTime" />
+      <Parameter Name="WeddingTime" Mode="In" Type="Time" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Account_Verification" ReturnType="Collection(String)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Procedure1_Result">
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="Int32" Name="Column2" Nullable="true" />
+  </ComplexType>
+</Schema>

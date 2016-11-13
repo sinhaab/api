@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WeddingPlannerModelStoreContainer" CdmEntityContainer="WeddingPlannerEntities">
+    <FunctionImportMapping FunctionImportName="USP_Account_ChangePassword" FunctionName="WeddingPlannerModel.Store.USP_Account_ChangePassword" />
+    <FunctionImportMapping FunctionImportName="USP_Account_Insert" FunctionName="WeddingPlannerModel.Store.USP_Account_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_Account_Verification" FunctionName="WeddingPlannerModel.Store.USP_Account_Verification" />
+  </EntityContainerMapping>
+</Mapping>

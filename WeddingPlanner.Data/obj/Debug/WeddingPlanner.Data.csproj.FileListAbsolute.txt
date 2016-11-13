@@ -1,0 +1,16 @@
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\bin\Debug\WeddingPlanner.Data.dll.config
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\bin\Debug\WeddingPlanner.Data.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\bin\Debug\WeddingPlanner.Data.pdb
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\bin\Debug\EntityFramework.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\bin\Debug\EntityFramework.xml
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\obj\Debug\WeddingPlanner.Data.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\obj\Debug\WeddingPlanner.Data.pdb
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Data\obj\Debug\WeddingPlanner.Data.csprojResolveAssemblyReference.cache
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\bin\Debug\WeddingPlanner.Data.dll.config
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\bin\Debug\WeddingPlanner.Data.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\bin\Debug\WeddingPlanner.Data.pdb
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\bin\Debug\EntityFramework.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\bin\Debug\EntityFramework.xml
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\obj\Debug\WeddingPlanner.Data.csprojResolveAssemblyReference.cache
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\obj\Debug\WeddingPlanner.Data.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Data\obj\Debug\WeddingPlanner.Data.pdb

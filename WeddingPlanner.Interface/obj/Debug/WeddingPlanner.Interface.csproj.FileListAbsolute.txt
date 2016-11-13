@@ -1,0 +1,14 @@
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Interface.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Interface.pdb
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Entities.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Entities.pdb
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Interface\obj\Debug\WeddingPlanner.Interface.csprojResolveAssemblyReference.cache
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Interface\obj\Debug\WeddingPlanner.Interface.dll
+D:\MobileApplication\WeddingPlanner.Web\WeddingPlanner.Interface\obj\Debug\WeddingPlanner.Interface.pdb
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Interface.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Interface.pdb
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Entities.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Interface\bin\Debug\WeddingPlanner.Entities.pdb
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Interface\obj\Debug\WeddingPlanner.Interface.csprojResolveAssemblyReference.cache
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Interface\obj\Debug\WeddingPlanner.Interface.dll
+D:\MobileApplication\WeddingPlanner\WeddingPlanner.Interface\obj\Debug\WeddingPlanner.Interface.pdb
