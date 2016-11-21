@@ -24,7 +24,7 @@ namespace WeddingPlanner.Service
        {
            using (var db = _dbContext.GetDbContext())
            {             
-               return db.USP_Account_Insert(email, password, name, brideName, groomName, weddingDate, weddingTime).AsEnumerable();
+               return db.USP_Account_Insert(email, password, name, brideName, groomName, weddingDate, weddingTime).ToList();
            }
         }
 
@@ -32,15 +32,43 @@ namespace WeddingPlanner.Service
        {
            using (var db = _dbContext.GetDbContext())
            {
-               return db.USP_Account_Verification(email, password).AsEnumerable();
+               return db.USP_Account_Verification(email, password).ToList();
            }
        }
-       public IEnumerable<string> ChangePassword(string email, string password, string name)
+       public IEnumerable<string> ChangePassword(string email, string oldPassword,string newPassword, string name)
        {
            using (var db = _dbContext.GetDbContext())
            {
-               return db.USP_Account_ChangePassword(email, password, name).AsEnumerable();
+               return db.USP_Account_ChangePassword(email, oldPassword, newPassword,name).ToList();
            }
+       }
+
+       public IEnumerable<WeddingCountdownEntity> WeddingCountDown(string email)
+       {
+           using (var db = _dbContext.GetDbContext())
+           {
+               var accountDetail = db.USP_WeddingCountdown_Select(email).ToList();
+               if (accountDetail != null)
+               {
+                   IEnumerable<WeddingCountdownEntity> weddingCountdown =
+                                             from p in accountDetail
+                                             select new WeddingCountdownEntity
+                                                  {                                     
+                                                    BrideName = p.BrideName, 
+                                                    GroomName =p.GroomName,
+                                                    WeddingDate=p.WeddingDate,
+                                                    WeddingTime = p.WeddingTime.ToString()
+                                                    
+                                                    //+ (System.TimeSpan.FromMinutes(p.WeddingTime))
+                                                  };
+                         return weddingCountdown.ToList();
+               }
+               return null;
+
+
+            
+           }
+
        }
     }
 }

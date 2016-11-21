@@ -12,6 +12,7 @@ namespace WeddingPlanner.Data
     {
         public DbContextFactory()
         {
+           
         }
 
         public WeddingPlannerEntities GetDbContext()

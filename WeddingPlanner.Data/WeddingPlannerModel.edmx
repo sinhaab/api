@@ -8,7 +8,8 @@
         <EntityContainer Name="WeddingPlannerModelStoreContainer" />
         <Function Name="USP_Account_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Email" Type="varchar" Mode="In" />
-          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="OldPassword" Type="varchar" Mode="In" />
+          <Parameter Name="NewPassword" Type="varchar" Mode="In" />
           <Parameter Name="Name" Type="varchar" Mode="In" />
         </Function>
         <Function Name="USP_Account_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -24,16 +25,27 @@
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="Password" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="USP_WeddingChecklistTimeline_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Timeline" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_WeddingCountdown_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_WeddingTimeline_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_WeddingTimeline_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="StartingTime" Type="time" Mode="In" />
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Location" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WeddingPlannerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="WeddingPlannerEntities" p1:LazyLoadingEnabled="true" >
-          <FunctionImport Name="USP_Account_ChangePassword" ReturnType="Collection(String)">
-            <Parameter Name="Email" Mode="In" Type="String" />
-            <Parameter Name="Password" Mode="In" Type="String" />
-            <Parameter Name="Name" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="USP_Account_Insert" ReturnType="Collection(String)">
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
@@ -47,10 +59,38 @@
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="USP_Account_ChangePassword" ReturnType="Collection(String)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_WeddingChecklistTimeline_InsertUpdate">
+          <Parameter Name="Timeline" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_WeddingTimeline_Delete">
+          <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_WeddingTimeline_InsertUpdate" ReturnType="Collection(String)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="StartingTime" Mode="In" Type="Time" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_WeddingCountdown_Select" ReturnType="Collection(WeddingPlannerModel.USP_WeddingCountdown_Select_Result)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Procedure1_Result">
           <Property Type="Int32" Name="Column1" Nullable="true" />
           <Property Type="Int32" Name="Column2" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_WeddingCountdown_Select_Result">
+          <Property Type="String" Name="BrideName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="GroomName" Nullable="false" MaxLength="256" />
+          <Property Type="DateTime" Name="WeddingDate" Nullable="false" Precision="23" />
+          <Property Type="Time" Name="WeddingTime" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -58,9 +98,22 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="WeddingPlannerModelStoreContainer" CdmEntityContainer="WeddingPlannerEntities" >
-        <FunctionImportMapping FunctionImportName="USP_Account_ChangePassword" FunctionName="WeddingPlannerModel.Store.USP_Account_ChangePassword" />
           <FunctionImportMapping FunctionImportName="USP_Account_Insert" FunctionName="WeddingPlannerModel.Store.USP_Account_Insert" />
           <FunctionImportMapping FunctionImportName="USP_Account_Verification" FunctionName="WeddingPlannerModel.Store.USP_Account_Verification" />
+          <FunctionImportMapping FunctionImportName="USP_Account_ChangePassword" FunctionName="WeddingPlannerModel.Store.USP_Account_ChangePassword" />
+          <FunctionImportMapping FunctionImportName="USP_WeddingChecklistTimeline_InsertUpdate" FunctionName="WeddingPlannerModel.Store.USP_WeddingChecklistTimeline_InsertUpdate" />
+          <FunctionImportMapping FunctionImportName="USP_WeddingTimeline_Delete" FunctionName="WeddingPlannerModel.Store.USP_WeddingTimeline_Delete" />
+          <FunctionImportMapping FunctionImportName="USP_WeddingTimeline_InsertUpdate" FunctionName="WeddingPlannerModel.Store.USP_WeddingTimeline_InsertUpdate" />
+          <FunctionImportMapping FunctionImportName="USP_WeddingCountdown_Select" FunctionName="WeddingPlannerModel.Store.USP_WeddingCountdown_Select">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WeddingPlannerModel.USP_WeddingCountdown_Select_Result">
+                <ScalarProperty Name="BrideName" ColumnName="BrideName" />
+                <ScalarProperty Name="GroomName" ColumnName="GroomName" />
+                <ScalarProperty Name="WeddingDate" ColumnName="WeddingDate" />
+                <ScalarProperty Name="WeddingTime" ColumnName="WeddingTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

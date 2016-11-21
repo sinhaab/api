@@ -9,8 +9,10 @@ namespace WeddingPlanner.Interface
 {
     public interface IAccountService
     {
-        IEnumerable<string> InsertSignUpAccount(string Email, string Password, string Name, string BrideName, string GroomName, DateTime WeddingDate, TimeSpan WeddingTime);
-        IEnumerable<string> VerifyAccount(string Email, string Password);
-        IEnumerable<string> ChangePassword(string Email, string Password,string Name);
+       
+        IEnumerable<string> InsertSignUpAccount(string email, string password, string name, string brideName, string groomName, DateTime weddingDate, TimeSpan weddingTime);
+        IEnumerable<string> VerifyAccount(string email, string password);
+        IEnumerable<string> ChangePassword(string email, string oldPassword,string newPassword,string name);
+        IEnumerable<WeddingCountdownEntity> WeddingCountDown(string email);
     }
 }

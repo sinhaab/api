@@ -51,6 +51,9 @@
       <DependentUpon>WeddingPlannerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="USP_WeddingCountdown_Select_Result.cs">
+      <DependentUpon>WeddingPlannerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="WeddingPlannerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
