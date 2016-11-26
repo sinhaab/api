@@ -47,9 +47,6 @@
   <ItemGroup>
     <Compile Include="DbContextFactory.cs" />
     <Compile Include="Interface\IDbContextFactory.cs" />
-    <Compile Include="Procedure1_Result.cs">
-      <DependentUpon>WeddingPlannerModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="USP_WeddingCountdown_Select_Result.cs">
       <DependentUpon>WeddingPlannerModel.tt</DependentUpon>

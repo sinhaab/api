@@ -13,12 +13,18 @@ namespace WeddingPlanner.Service
 {
     public class AccountService : IAccountService
     {
-       private readonly IDbContextFactory _dbContext;
+        #region Variable
+        private readonly IDbContextFactory _dbContext;
+        #endregion
 
-       public AccountService(IDbContextFactory dbContextFactory)
+        #region Constructor
+        public AccountService(IDbContextFactory dbContextFactory)
        {
         _dbContext = dbContextFactory;
        }
+       #endregion
+
+       #region Action
 
        public  IEnumerable<string> InsertSignUpAccount(string email, string password, string name, string brideName, string groomName, DateTime weddingDate, TimeSpan weddingTime)
        {
@@ -43,7 +49,7 @@ namespace WeddingPlanner.Service
            }
        }
 
-       public IEnumerable<WeddingCountdownEntity> WeddingCountDown(string email)
+      public IEnumerable<WeddingCountdownEntity> WeddingCountDown(string email)
        {
            using (var db = _dbContext.GetDbContext())
            {
@@ -53,22 +59,32 @@ namespace WeddingPlanner.Service
                    IEnumerable<WeddingCountdownEntity> weddingCountdown =
                                              from p in accountDetail
                                              select new WeddingCountdownEntity
-                                                  {                                     
-                                                    BrideName = p.BrideName, 
-                                                    GroomName =p.GroomName,
-                                                    WeddingDate=p.WeddingDate,
-                                                    WeddingTime = p.WeddingTime.ToString()
-                                                    
-                                                    //+ (System.TimeSpan.FromMinutes(p.WeddingTime))
-                                                  };
-                         return weddingCountdown.ToList();
+                                                  {
+                                                      BrideName = p.BrideName,
+                                                      GroomName = p.GroomName,
+                                                      WeddingDate = p.WeddingDate,
+                                                      WeddingTime = p.WeddingTime.ToString()
+
+                                                   };
+                   return weddingCountdown.ToList();
                }
                return null;
-
-
-            
            }
 
        }
+       public IEnumerable<string> UpdateWeddingCountdown(string email, string brideName, string groomName, DateTime weddingDate, TimeSpan weddingTime)
+       {
+           using (var db = _dbContext.GetDbContext())
+           {
+               return db.USP_WeddingCountdown_Update(email, brideName, groomName, weddingDate, weddingTime).ToList(); 
+           }
+
+       }
+
+       #endregion
+
+        #region Helper
+
+        #endregion
     }
 }

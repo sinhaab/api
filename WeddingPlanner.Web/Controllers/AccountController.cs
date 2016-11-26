@@ -60,6 +60,22 @@ namespace WeddingPlanner.Web.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, result.ToList());
             return response;
         }
+
+        [HttpGet]
+        public HttpResponseMessage UpdateWeddingCountdown(string email, string brideName, string groomName, string weddingDate, string weddingTime)
+        {
+            TimeSpan time;
+            time = DateTime.ParseExact(weddingTime, "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
+            DateTime dtWedding;
+            string[] sDate = weddingDate.Split('/');
+            string sDateTime = sDate[1] + '/' + sDate[0] + '/' + sDate[2];
+            dtWedding = Convert.ToDateTime(sDateTime);
+            var result = _accountService.UpdateWeddingCountdown(email, brideName, groomName, dtWedding, time);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, result);
+            return response;
+        }
+
+
          [HttpGet]
         public string Test()
         {

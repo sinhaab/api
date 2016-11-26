@@ -29,23 +29,6 @@ namespace WeddingPlanner.Data
         }
     
     
-        public virtual ObjectResult<string> USP_Account_ChangePassword(string email, string password, string name)
-        {
-            var emailParameter = email != null ?
-                new ObjectParameter("Email", email) :
-                new ObjectParameter("Email", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("Password", password) :
-                new ObjectParameter("Password", typeof(string));
-    
-            var nameParameter = name != null ?
-                new ObjectParameter("Name", name) :
-                new ObjectParameter("Name", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_Account_ChangePassword", emailParameter, passwordParameter, nameParameter);
-        }
-    
         public virtual ObjectResult<string> USP_Account_Insert(string email, string password, string name, string brideName, string groomName, Nullable<System.DateTime> weddingDate, Nullable<System.TimeSpan> weddingTime)
         {
             var emailParameter = email != null ?
@@ -90,6 +73,108 @@ namespace WeddingPlanner.Data
                 new ObjectParameter("Password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_Account_Verification", emailParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<string> USP_Account_ChangePassword(string email, string oldPassword, string newPassword, string name)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var oldPasswordParameter = oldPassword != null ?
+                new ObjectParameter("OldPassword", oldPassword) :
+                new ObjectParameter("OldPassword", typeof(string));
+    
+            var newPasswordParameter = newPassword != null ?
+                new ObjectParameter("NewPassword", newPassword) :
+                new ObjectParameter("NewPassword", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_Account_ChangePassword", emailParameter, oldPasswordParameter, newPasswordParameter, nameParameter);
+        }
+    
+        public virtual int USP_WeddingChecklistTimeline_InsertUpdate(string timeline)
+        {
+            var timelineParameter = timeline != null ?
+                new ObjectParameter("Timeline", timeline) :
+                new ObjectParameter("Timeline", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_WeddingChecklistTimeline_InsertUpdate", timelineParameter);
+        }
+    
+        public virtual int USP_WeddingTimeline_Delete(string email)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_WeddingTimeline_Delete", emailParameter);
+        }
+    
+        public virtual ObjectResult<string> USP_WeddingTimeline_InsertUpdate(Nullable<int> id, string email, Nullable<System.TimeSpan> startingTime, string title, string location, string description)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var startingTimeParameter = startingTime.HasValue ?
+                new ObjectParameter("StartingTime", startingTime) :
+                new ObjectParameter("StartingTime", typeof(System.TimeSpan));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var locationParameter = location != null ?
+                new ObjectParameter("Location", location) :
+                new ObjectParameter("Location", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_WeddingTimeline_InsertUpdate", idParameter, emailParameter, startingTimeParameter, titleParameter, locationParameter, descriptionParameter);
+        }
+    
+        public virtual ObjectResult<USP_WeddingCountdown_Select_Result> USP_WeddingCountdown_Select(string email)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_WeddingCountdown_Select_Result>("USP_WeddingCountdown_Select", emailParameter);
+        }
+    
+        public virtual ObjectResult<string> USP_WeddingCountdown_Update(string email, string brideName, string groomName, Nullable<System.DateTime> weddingDate, Nullable<System.TimeSpan> weddingTime)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var brideNameParameter = brideName != null ?
+                new ObjectParameter("BrideName", brideName) :
+                new ObjectParameter("BrideName", typeof(string));
+    
+            var groomNameParameter = groomName != null ?
+                new ObjectParameter("GroomName", groomName) :
+                new ObjectParameter("GroomName", typeof(string));
+    
+            var weddingDateParameter = weddingDate.HasValue ?
+                new ObjectParameter("WeddingDate", weddingDate) :
+                new ObjectParameter("WeddingDate", typeof(System.DateTime));
+    
+            var weddingTimeParameter = weddingTime.HasValue ?
+                new ObjectParameter("WeddingTime", weddingTime) :
+                new ObjectParameter("WeddingTime", typeof(System.TimeSpan));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_WeddingCountdown_Update", emailParameter, brideNameParameter, groomNameParameter, weddingDateParameter, weddingTimeParameter);
         }
     }
 }

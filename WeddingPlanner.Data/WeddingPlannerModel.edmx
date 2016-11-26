@@ -31,10 +31,18 @@
         <Function Name="USP_WeddingCountdown_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Email" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="USP_WeddingCountdown_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="BrideName" Type="varchar" Mode="In" />
+          <Parameter Name="GroomName" Type="varchar" Mode="In" />
+          <Parameter Name="WeddingDate" Type="datetime" Mode="In" />
+          <Parameter Name="WeddingTime" Type="time" Mode="In" />
+        </Function>
         <Function Name="USP_WeddingTimeline_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Email" Type="varchar" Mode="In" />
         </Function>
         <Function Name="USP_WeddingTimeline_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="StartingTime" Type="time" Mode="In" />
           <Parameter Name="Title" Type="varchar" Mode="In" />
@@ -72,6 +80,7 @@
           <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="USP_WeddingTimeline_InsertUpdate" ReturnType="Collection(String)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="StartingTime" Mode="In" Type="Time" />
             <Parameter Name="Title" Mode="In" Type="String" />
@@ -79,13 +88,16 @@
             <Parameter Name="Description" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="USP_WeddingCountdown_Select" ReturnType="Collection(WeddingPlannerModel.USP_WeddingCountdown_Select_Result)">
+          <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_WeddingCountdown_Update" ReturnType="Collection(String)">
             <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="BrideName" Mode="In" Type="String" />
+            <Parameter Name="GroomName" Mode="In" Type="String" />
+            <Parameter Name="WeddingDate" Mode="In" Type="DateTime" />
+            <Parameter Name="WeddingTime" Mode="In" Type="Time" />
           </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="Procedure1_Result">
-          <Property Type="Int32" Name="Column1" Nullable="true" />
-          <Property Type="Int32" Name="Column2" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="USP_WeddingCountdown_Select_Result">
           <Property Type="String" Name="BrideName" Nullable="false" MaxLength="256" />
           <Property Type="String" Name="GroomName" Nullable="false" MaxLength="256" />
@@ -114,6 +126,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_WeddingCountdown_Update" FunctionName="WeddingPlannerModel.Store.USP_WeddingCountdown_Update" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

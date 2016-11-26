@@ -14,5 +14,6 @@ namespace WeddingPlanner.Interface
         IEnumerable<string> VerifyAccount(string email, string password);
         IEnumerable<string> ChangePassword(string email, string oldPassword,string newPassword,string name);
         IEnumerable<WeddingCountdownEntity> WeddingCountDown(string email);
+        IEnumerable<string> UpdateWeddingCountdown(string email, string brideName, string groomName, DateTime weddingDate, TimeSpan weddingTime);
     }
 }
